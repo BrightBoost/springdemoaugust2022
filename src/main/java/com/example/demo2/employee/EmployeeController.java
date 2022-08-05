@@ -1,5 +1,6 @@
 package com.example.demo2.employee;
 
+import com.example.demo2.address.Address;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,10 @@ public class EmployeeController {
     @GetMapping("employee")
     public Employee getEmployee() {
         Employee employee = new Employee("Maria", "Software specialist", 9);
+        Address address = new Address();
+        address.setNumber("1");
+        address.setStreet("STreet");
+        employee.setAddress(address);
         return employee;
     }
 

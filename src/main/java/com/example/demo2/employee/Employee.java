@@ -1,8 +1,8 @@
 package com.example.demo2.employee;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.example.demo2.address.Address;
+
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -12,6 +12,8 @@ public class Employee {
     private String name;
     private String job;
     private int score;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
 
     public Employee(String name, String job, int score) {
         this.name = name;
@@ -52,5 +54,13 @@ public class Employee {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
